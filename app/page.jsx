@@ -1,3 +1,9 @@
+import Navbar from "./navbar";
+
 export default function Home() {
-	return <main>Hi</main>;
+	return (
+		<main>
+			<Navbar className="navbar" />
+		</main>
+	);
 }
