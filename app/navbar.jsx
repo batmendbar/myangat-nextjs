@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-navbarElements = [
+let navbarElements = [
 	{
 		name: "Results",
 		href: "/results",
@@ -9,6 +9,10 @@ navbarElements = [
 	{
 		name: "Contact",
 		href: "/contact",
+	},
+	{
+		name: "Hall of Fame",
+		href: "/halloffame",
 	},
 ];
 

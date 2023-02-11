@@ -2,6 +2,13 @@ body {
 	margin: 0;
 }
 
+main {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
 a {
 	text-decoration: none;
 	color: inherit;
@@ -24,4 +31,8 @@ a {
 
 .navbar-element {
 	margin: 0em 0.5em;
+}
+
+footer {
+	text-align: center;
 }
