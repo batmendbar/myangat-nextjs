@@ -1,0 +1,63 @@
+function ScoreHeader(prefix, score) {
+	return (
+		<th class="score_cell">
+			{prefix}
+			{score}
+		</th>
+	);
+}
+
+function ScoreCell(score) {
+	return <td>{score}</td>;
+}
+
+function Performance(performance) {
+	return (
+		<tr>
+			<td>{performance.rank}</td>
+			<td>{performance.name}</td>
+			<td>{performance.school}</td>
+			<td>{performance.division}</td>
+			<td>{performance.region}</td>
+			{performance.dayOneScores.map((score) => ScoreCell(score))}
+			{performance.dayTwoScores.map((score) => ScoreCell(score))}
+			<td>{performance.totalScore}</td>
+			<td>{performance.award}</td>
+		</tr>
+	);
+}
+
+export default function ResultTable(results) {
+	return (
+		<div>
+			<div class="content flex-container-vertical big-content">
+				<h3 class="centered-item">
+					<span>
+						{results.competitionName}
+						{results.year}:{results.division}
+					</span>
+				</h3>
+				<table class="centered-item">
+					<tr>
+						<th>Байр</th>
+						<th>Нэр</th>
+						<th class="school_name">Сургууль</th>
+						<th>Анги</th>
+						<th>Бүс</th>
+						{[...Array(results.dayOneProblemCount).keys()].map(
+							(i) => ScoreHeader("A", i + 1)
+						)}
+						{[...Array(results.dayTwoProblemCount).keys()].map(
+							(i) => ScoreHeader("B", i + 1)
+						)}
+						<th>Нийт</th>
+						<th>Шагнал</th>
+					</tr>
+					{results.performances.map((performance) =>
+						Performance(performance)
+					)}
+				</table>
+			</div>
+		</div>
+	);
+}

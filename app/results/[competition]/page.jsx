@@ -1,6 +1,8 @@
+import Link from "next/link";
+
 import clientPromise from "../../../lib/mongodb";
 
-async function getYears(competitionName) {
+async function getYears(competitionName, params) {
 	const client = await clientPromise;
 	const db = client.db("competition_results");
 	const all = await db
@@ -12,7 +14,7 @@ async function getYears(competitionName) {
 	return JSON.parse(JSON.stringify(all));
 }
 
-function CompetitionYear(instance) {
+function CompetitionYear(instance, params) {
 	let divisions = instance.divisions;
 
 	divisions = divisions.sort(function (a, b) {
@@ -27,7 +29,13 @@ function CompetitionYear(instance) {
 
 			<div>
 				{divisions.map((division) => (
-					<span>{division}</span>
+					<span>
+						<Link
+							href={`/results/${params.competition}/${instance.year}/${division}`}
+						>
+							{division}
+						</Link>
+					</span>
 				))}
 			</div>
 		</div>
@@ -47,7 +55,7 @@ export default async function CompetitionResult({ params }) {
 	return (
 		<main>
 			{instances.map((instance) => (
-				<div>{CompetitionYear(instance)}</div>
+				<div>{CompetitionYear(instance, params)}</div>
 			))}
 		</main>
 	);
