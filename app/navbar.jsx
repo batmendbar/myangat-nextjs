@@ -7,10 +7,6 @@ let navbarElements = [
 		href: "/results",
 	},
 	{
-		name: "Contact",
-		href: "/contact",
-	},
-	{
 		name: "Hall of Fame",
 		href: "/halloffame",
 	},
@@ -28,13 +24,15 @@ function NavbarElement(element) {
 export default function Navbar() {
 	return (
 		<nav className="navbar">
-			<Image
-				className="logo"
-				src="/logoWithName.png"
-				alt="Mянгат"
-				width={100}
-				height={100}
-			/>
+			<Link href="/">
+				<Image
+					className="logo"
+					src="/logoWithName.png"
+					alt="Mянгат"
+					width={100}
+					height={100}
+				/>
+			</Link>
 			<div>{navbarElements.map((element) => NavbarElement(element))}</div>
 		</nav>
 	);
