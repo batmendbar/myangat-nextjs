@@ -1,4 +1,5 @@
 import clientPromise from "../../lib/mongodb";
+import Link from "next/link";
 
 async function getData() {
 	const client = await clientPromise;
@@ -7,13 +8,24 @@ async function getData() {
 	return JSON.parse(JSON.stringify(all));
 }
 
+function Competition(competition) {
+	return (
+		<Link
+			key={competition._id}
+			href={`/results/${competition.competitionName}`}
+		>
+			{competition.competitionName}
+		</Link>
+	);
+}
+
 export default async function ResultsPage() {
 	let competitions = await getData();
 	return (
 		<main>
 			<ul>
-				{competitions.map((result) => (
-					<li key={result._id}>{result.competitionName}</li>
+				{competitions.map((competition) => (
+					<li>{Competition(competition)}</li>
 				))}
 			</ul>
 		</main>
