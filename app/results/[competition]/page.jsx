@@ -24,16 +24,20 @@ function CompetitionYear(instance, params) {
 	});
 
 	return (
-		<div>
-			<div>{instance.year}</div>
+		<div className="competition-year">
+			<div>{`${instance.year} оны ангиллууд:`}</div>
 
-			<div>
+			<div className="division-list">
 				{divisions.map((division) => (
 					<span>
 						<Link
+							className="division"
 							href={`/results/${params.competition}/${instance.year}/${division}`}
 						>
-							{division}
+							{division
+								.replace("-р анги", "")
+								.replace("шилжилт", "ш")
+								.replace("Шилжилт", "ш")}
 						</Link>
 					</span>
 				))}
@@ -54,6 +58,7 @@ export default async function CompetitionResult({ params }) {
 
 	return (
 		<main>
+			<h2>{decodeURI(params.competition)}</h2>
 			{instances.map((instance) => (
 				<div>{CompetitionYear(instance, params)}</div>
 			))}

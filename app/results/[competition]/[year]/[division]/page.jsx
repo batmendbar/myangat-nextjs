@@ -6,7 +6,6 @@ async function getDivision(params) {
 	let year = decodeURI(params.year);
 	let division = decodeURI(params.division);
 
-	console.log(competitionName + " " + year + " " + division);
 	const client = await clientPromise;
 	const db = client.db("competition_results");
 	const all = await db
@@ -23,5 +22,15 @@ async function getDivision(params) {
 export default async function CompetitionResult({ params }) {
 	let divsions = await getDivision(params);
 	let division = divsions[0];
-	return <div>{ResultTable(division)}</div>;
+	return (
+		<main className="result-table">
+			<h3 className="centered-item">
+				<span>
+					{`${division.competitionName} 
+					${division.year}: ${division.division}`}
+				</span>
+			</h3>
+			{ResultTable(division)}
+		</main>
+	);
 }

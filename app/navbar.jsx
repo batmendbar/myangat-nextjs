@@ -3,11 +3,11 @@ import Image from "next/image";
 
 let navbarElements = [
 	{
-		name: "Results",
+		name: "Дүнгүүд",
 		href: "/results",
 	},
 	{
-		name: "Hall of Fame",
+		name: "Алдарын танхим",
 		href: "/halloffame",
 	},
 ];

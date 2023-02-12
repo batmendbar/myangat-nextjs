@@ -1,6 +1,6 @@
 function ScoreHeader(prefix, score) {
 	return (
-		<th class="score_cell">
+		<th className="score_cell">
 			{prefix}
 			{score}
 		</th>
@@ -16,7 +16,7 @@ function Performance(performance) {
 		<tr>
 			<td>{performance.rank}</td>
 			<td>{performance.name}</td>
-			<td>{performance.school}</td>
+			<td className="school-name">{performance.school}</td>
 			<td>{performance.division}</td>
 			<td>{performance.region}</td>
 			{performance.dayOneScores.map((score) => ScoreCell(score))}
@@ -30,32 +30,30 @@ function Performance(performance) {
 export default function ResultTable(results) {
 	return (
 		<div>
-			<div class="content flex-container-vertical big-content">
-				<h3 class="centered-item">
-					<span>
-						{results.competitionName}
-						{results.year}:{results.division}
-					</span>
-				</h3>
-				<table class="centered-item">
-					<tr>
-						<th>Байр</th>
-						<th>Нэр</th>
-						<th class="school_name">Сургууль</th>
-						<th>Анги</th>
-						<th>Бүс</th>
-						{[...Array(results.dayOneProblemCount).keys()].map(
-							(i) => ScoreHeader("A", i + 1)
+			<div className="content flex-container-vertical big-content">
+				<table className="centered-item">
+					<thead>
+						<tr>
+							<th>Байр</th>
+							<th>Нэр</th>
+							<th className="school-name">Сургууль</th>
+							<th>Анги</th>
+							<th>Бүс</th>
+							{[...Array(results.dayOneProblemCount).keys()].map(
+								(i) => ScoreHeader("A", i + 1)
+							)}
+							{[...Array(results.dayTwoProblemCount).keys()].map(
+								(i) => ScoreHeader("B", i + 1)
+							)}
+							<th>Нийт</th>
+							<th>Шагнал</th>
+						</tr>
+					</thead>
+					<tbody>
+						{results.performances.map((performance) =>
+							Performance(performance)
 						)}
-						{[...Array(results.dayTwoProblemCount).keys()].map(
-							(i) => ScoreHeader("B", i + 1)
-						)}
-						<th>Нийт</th>
-						<th>Шагнал</th>
-					</tr>
-					{results.performances.map((performance) =>
-						Performance(performance)
-					)}
+					</tbody>
 				</table>
 			</div>
 		</div>

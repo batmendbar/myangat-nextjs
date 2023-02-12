@@ -10,12 +10,14 @@ async function getData() {
 
 function Competition(competition) {
 	return (
-		<Link
-			key={competition._id}
-			href={`/results/${competition.competitionName}`}
-		>
-			{competition.competitionName}
-		</Link>
+		<div className="competition">
+			<Link
+				key={competition._id}
+				href={`/results/${competition.competitionName}`}
+			>
+				{competition.competitionName}
+			</Link>
+		</div>
 	);
 }
 
@@ -23,11 +25,10 @@ export default async function ResultsPage() {
 	let competitions = await getData();
 	return (
 		<main>
-			<ul>
-				{competitions.map((competition) => (
-					<li>{Competition(competition)}</li>
-				))}
-			</ul>
+			<h2>Тэмцээнүүд</h2>
+			{competitions.map((competition) => (
+				<div>{Competition(competition)}</div>
+			))}
 		</main>
 	);
 }

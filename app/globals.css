@@ -1,8 +1,11 @@
 body {
+	font-family: oscl, tahoma, Arial, sans-serif;
 	margin: 0;
+	font-size: large;
 }
 
 main {
+	padding: 0.5em 2em;
 	min-height: 100vh;
 	justify-content: space-between;
 }
@@ -10,6 +13,11 @@ main {
 a {
 	text-decoration: none;
 	color: inherit;
+	padding: 0.1em 0.5em;
+}
+
+a:hover {
+	background-color: rgb(100, 149, 237);
 }
 
 .navbar {
@@ -33,4 +41,30 @@ a {
 
 footer {
 	text-align: center;
+}
+
+.result-table {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.school-name {
+	max-width: 10em;
+}
+
+td {
+	padding: 0.3em;
+}
+
+.competition-year {
+	margin-bottom: 1em;
+}
+
+.competition {
+	margin-bottom: 0.5em;
+}
+
+.division-list {
+	margin-top: 0.2em;
 }
