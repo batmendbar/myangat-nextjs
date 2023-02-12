@@ -48,20 +48,24 @@ function CompetitionYear(instance, params) {
 
 export default async function CompetitionResult({ params }) {
 	let competition = await getYears(decodeURI(params.competition));
-	let instances = competition[0].instances;
+	if (competition.length != 0) {
+		let instances = competition[0].instances;
 
-	instances = instances.sort(function (a, b) {
-		if (a.year < b.year) return -1;
-		if (a.year > b.year) return 1;
-		return 0;
-	});
+		instances = instances.sort(function (a, b) {
+			if (a.year < b.year) return -1;
+			if (a.year > b.year) return 1;
+			return 0;
+		});
 
-	return (
-		<main>
-			<h2>{decodeURI(params.competition)}</h2>
-			{instances.map((instance) => (
-				<div>{CompetitionYear(instance, params)}</div>
-			))}
-		</main>
-	);
+		return (
+			<main>
+				<h2>{decodeURI(params.competition)}</h2>
+				{instances.map((instance) => (
+					<div>{CompetitionYear(instance, params)}</div>
+				))}
+			</main>
+		);
+	} else {
+		return <main>Hi</main>;
+	}
 }

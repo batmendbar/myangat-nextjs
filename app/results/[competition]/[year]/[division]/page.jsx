@@ -20,17 +20,21 @@ async function getDivision(params) {
 }
 
 export default async function CompetitionResult({ params }) {
-	let divsions = await getDivision(params);
-	let division = divsions[0];
-	return (
-		<main className="result-table">
-			<h3 className="centered-item">
-				<span>
-					{`${division.competitionName} 
+	let divisions = await getDivision(params);
+	if (divisions.length != 0) {
+		let division = divisions[0];
+		return (
+			<main className="result-table">
+				<h3 className="centered-item">
+					<span>
+						{`${division.competitionName} 
 					${division.year}: ${division.division}`}
-				</span>
-			</h3>
-			{ResultTable(division)}
-		</main>
-	);
+					</span>
+				</h3>
+				{ResultTable(division)}
+			</main>
+		);
+	} else {
+		return <main>Hi</main>;
+	}
 }
