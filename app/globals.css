@@ -68,3 +68,9 @@ td {
 .division-list {
 	margin-top: 0.2em;
 }
+
+@media screen and (max-width: 850px) {
+	.result-table {
+		align-items: flex-start;
+	}
+}
