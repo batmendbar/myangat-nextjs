@@ -7,7 +7,7 @@ let navbarElements = [
 		href: "/results",
 	},
 	{
-		name: "Алдарын танхим",
+		name: "Мэргэд",
 		href: "/halloffame",
 	},
 ];

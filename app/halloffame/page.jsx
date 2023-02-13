@@ -6,7 +6,7 @@ let hall_of_famers = [
 			"Отгонбаярын Мишээл",
 			"Амарын Нямдаваа",
 			"Энхбаярын Төрбат",
-			"Баттулгын Өлзийбат",
+			"Өлзийбатын Баттулга",
 		],
 	},
 	{
@@ -73,7 +73,7 @@ let hall_of_famers = [
 export default function HallofFame() {
 	return (
 		<main>
-			<h2>Алдарын Танхим</h2>
+			<h2>Мэргэд</h2>
 			{hall_of_famers.map((group) => (
 				<div>
 					<h3>{group.competition_type}</h3>
