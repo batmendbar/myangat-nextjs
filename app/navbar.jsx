@@ -14,6 +14,10 @@ let navbarElements = [
 		name: "Баялаг",
 		href: "/resources",
 	},
+	{
+		name: "Зарлал",
+		href: "/news",
+	},
 ];
 
 function NavbarElement(element) {
