@@ -21,6 +21,8 @@ function Performance(performance) {
 			<td>{performance.region}</td>
 			{performance.dayOneScores.map((score) => ScoreCell(score))}
 			{performance.dayTwoScores.map((score) => ScoreCell(score))}
+			{performance.challengeScores.map((score) => ScoreCell(score))}
+			{performance.experimentScores.map((score) => ScoreCell(score))}
 			<td>{performance.totalScore}</td>
 			<td>{performance.award}</td>
 		</tr>
@@ -45,6 +47,12 @@ export default function ResultTable(results) {
 							{[...Array(results.dayTwoProblemCount).keys()].map(
 								(i) => ScoreHeader("B", i + 1)
 							)}
+							{[
+								...Array(results.challengeProblemCount).keys(),
+							].map((i) => ScoreHeader("С", i + 1))}
+							{[
+								...Array(results.experimentProblemCount).keys(),
+							].map((i) => ScoreHeader("Т", i + 1))}
 							<th>Нийт</th>
 							<th>Шагнал</th>
 						</tr>
