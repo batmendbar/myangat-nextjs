@@ -5,6 +5,10 @@ export default function Resources() {
 		<main>
 			<h2>Баялаг</h2>
 			<div>
+				Мэдээлэл зүйн олимпиадын бэлтгэл{" "}
+				<Link href="https://sqrt.mn/">sqrt.mn</Link>
+			</div>
+			<div>
 				Математикийн олимпиадын бодлогын сан{" "}
 				<Link href="https://www.integral.mn/olympiads">
 					integral.mn

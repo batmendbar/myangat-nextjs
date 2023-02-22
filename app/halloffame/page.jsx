@@ -1,6 +1,7 @@
 let hall_of_famers = [
 	{
 		competition_type: "Математик",
+		description: "Олон Улсын Математикийн Олимпиадын Алтан Медалтнууд",
 		names: [
 			"Мөнхбатын Өнөболд",
 			"Отгонбаярын Мишээл",
@@ -11,6 +12,7 @@ let hall_of_famers = [
 	},
 	{
 		competition_type: "Мэдээлэл Зүй",
+		description: "Олон Улсын Мэдээлэл Зүйн Олимпиадын Медалтнууд",
 		names: [
 			"Амарын Нямдаваа",
 			"Энхбаатарын Жангар",
@@ -22,6 +24,7 @@ let hall_of_famers = [
 	},
 	{
 		competition_type: "Физик",
+		description: "Олон Улсын Физикийн Олимпиадын Мөнгөн Медалтнууд",
 		names: [
 			"Отгончулууны Анирчулуу",
 			"Сарангэрэлын Сумъяажав",
@@ -34,13 +37,13 @@ let hall_of_famers = [
 	},
 	{
 		competition_type: "Биологи",
+		description: "Олон Улсын Биологийн Олимпиадын Медалтнууд",
 		names: [
 			"Энхтүвшингийн Тэргэл",
 			"Батжаргалын Хулан",
 			"Чинбатын Жаргалан",
 			"Эрдэнэбаатарын Бодьхүү",
 			"Болорын Пүрэвбадрал",
-			"Батбаярын Батбаяр",
 			"Бямбаагийн Билгүүн",
 			"Амарсанаагийн Ашид",
 			"Эрдэнэболдын Баттулга",
@@ -48,6 +51,7 @@ let hall_of_famers = [
 	},
 	{
 		competition_type: "Хими",
+		description: "Олон Улсын Химийн Олимпиадын Медалтнууд",
 		names: [
 			"Орхоны Тэмүжин",
 			"Алтанхуягийн Ирмүүн",
@@ -77,6 +81,7 @@ export default function HallofFame() {
 			{hall_of_famers.map((group) => (
 				<div>
 					<h3>{group.competition_type}</h3>
+					<h5>{group.description}</h5>
 					<ul>
 						{group.names.map((halloffamer) => (
 							<li>{halloffamer}</li>

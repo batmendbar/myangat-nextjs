@@ -35,6 +35,6 @@ export default async function CompetitionResult({ params }) {
 			</main>
 		);
 	} else {
-		return <main>Hi</main>;
+		return <main>Not found</main>;
 	}
 }
