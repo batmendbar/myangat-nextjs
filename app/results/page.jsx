@@ -1,6 +1,8 @@
 import clientPromise from "../../lib/mongodb";
 import Link from "next/link";
 
+("use client");
+
 async function getData() {
 	const client = await clientPromise;
 	const db = client.db("competition_results");

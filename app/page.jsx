@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Home() {
 	return (
 		<main className="homepage">
-			<div>Мянгат - Монголын олимпиадын нэгдсэн сан. </div>
+			<h2>Мянгат - Монголын олимпиадын нэгдсэн сан. </h2>
 			<div>
 				Мэдээллийн залруулга болон өөрчлөлтийн талаар
 				<Link href="mailto:batmend@gmail.com">
